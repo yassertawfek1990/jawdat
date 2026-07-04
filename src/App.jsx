@@ -573,7 +573,8 @@ export default function App(){
   async function callJawdat(apiMessages,intake,isFirst){
     const hist=messages.map(m=>({role:m.role==="jawdat"?"assistant":"user",content:m.text}));
     const sys=buildPrompt(intake,runNumRef.current,hist);
-    const res=await fetch("/.netlify/functions/proxy",{
+    //const res=await fetch("/.netlify/functions/proxy",{
+    const res=await fetch("/api/proxy",{
       method:"POST",headers:{"Content-Type":"application/json"},
     //   body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:2200,system:sys,messages:apiMessages}),
     // });
